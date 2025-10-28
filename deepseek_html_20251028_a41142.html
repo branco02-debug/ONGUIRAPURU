@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Adote uma Araucária - ONG Uirapuru</title>
+    <style>
+        /* Reset e configurações básicas para PDF */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            font-size: 12px;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+        }
+        
+        /* Cabeçalho */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2e7d32;
+        }
+        
+        .logo {
+            font-size: 24px;
+            color: #2e7d32;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .titulo-projeto {
+            font-size: 28px;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+        
+        .subtitulo {
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Seções */
+        .secao {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .titulo-secao {
+            font-size: 18px;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #4caf50;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2e7d32;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        /* Grid de métricas */
+        .metricas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .metrica {
+            text-align: center;
+            padding: 15px;
+            background: #e8f5e8;
+            border-radius: 8px;
+        }
+        
+        .numero {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .rotulo {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 10px;
+        }
+        
+        /* Utilitários */
+        .destaque {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #ff9800;
+            color: white;
+            border-radius: 4px;
+            font-size: 10px;
+            margin-right: 5px;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        .comunidades-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .comunidade-card {
+            background: white;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .etnias {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .etnia-tag {
+            background: #8d6e63;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 10px;
+        }
+
+        /* Impressão */
+        @media print {
+            .page {
+                margin: 0;
+                padding: 15mm;
+                box-shadow: none;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Capa -->
+        <div class="header">
+            <div class="logo">ONG UIRAPURU</div>
+            <h1 class="titulo-projeto">ADOTE UMA ARAUCÁRIA</h1>
+            <p class="subtitulo">Projeto de Reflorestamento com Comunidades Kaingang e Guarani</p>
+            <div style="margin-top: 30px;">
+                <span class="badge">IMPACTO AMBIENTAL</span>
+                <span class="badge">COMUNIDADES TRADICIONAIS</span>
+                <span class="badge">SUSTENTABILIDADE</span>
+            </div>
+        </div>
+
+        <!-- Resumo Executivo -->
+        <div class="secao">
+            <h2 class="titulo-secao">📋 RESUMO EXECUTIVO</h2>
+            <div class="card">
+                <p><strong>Problema:</strong> A araucária está em <span class="destaque">risco crítico de extinção</span> (menos de 3% da floresta original), enquanto comunidades indígenas Kaingang e Guarani carecem de fontes de renda sustentáveis.</p>
+                <p><strong>Solução:</strong> Plantio de <span class="destaque">2.000 araucárias</span> em duas Terras Indígenas, integrando conservação ambiental e desenvolvimento comunitário.</p>
+                <p><strong>Diferencial:</strong> Ambas as TIs são <span class="destaque">pluriétnicas</span>, reunindo conhecimentos tradicionais Kaingang e Guarani no manejo florestal.</p>
+                <p><strong>Investimento:</strong> <span class="destaque">R$ 40.000</span> para implementação inicial.</p>
+            </div>
+        </div>
+
+        <!-- Métricas Principais -->
+        <div class="secao">
+            <h2 class="titulo-secao">📊 IMPACTO ESPERADO</h2>
+            <div class="metricas">
+                <div class="metrica">
+                    <div class="numero">2.000</div>
+                    <div class="rotulo">Araucárias Plantadas</div>
+                </div>
+                <div class="metrica">
+                    <div class="numero">2.800</div>
+                    <div class="rotulo">Indígenas Beneficiados</div>
+                </div>
+                <div class="metrica">
+                    <div class="numero">400t</div>
+                    <div class="rotulo">CO₂ Sequesterado (10 anos)</div>
+                </div>
+                <div class="metrica">
+                    <div class="numero">2 TIs</div>
+                    <div class="rotulo">Comunidades Pluriétnicas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comunidades Beneficiadas -->
+        <div class="secao">
+            <h2 class="titulo-secao">🏞️ COMUNIDADES BENEFICIADAS</h2>
+            <div class="comunidades-grid">
+                <div class="comunidade-card">
+                    <h3>TI RIO DAS COBRAS</h3>
+                    <div class="etnias">
+                        <span class="etnia-tag">KAINGANG</span>
+                        <span class="etnia-tag">GUARANI</span>
+                    </div>
+                    <p><strong>1.000 araucárias</strong></p>
+                    <p>+2.000 indígenas</p>
+                    <p>18.500 hectares</p>
+                    <p><em>Conhecimento tradicional integrado</em></p>
+                </div>
+                <div class="comunidade-card">
+                    <h3>TI MARRECAS</h3>
+                    <div class="etnias">
+                        <span class="etnia-tag">KAINGANG</span>
+                        <span class="etnia-tag">GUARANI</span>
+                    </div>
+                    <p><strong>1.000 araucárias</strong></p>
+                    <p>+800 indígenas</p>
+                    <p>2.900 hectares</p>
+                    <p><em>Manejo florestal sustentável</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Como Funciona -->
+        <div class="secao">
+            <h2 class="titulo-secao">🔄 COMO FUNCIONA</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0;">
+                <div class="card">
+                    <h3>1. 💰 DOAÇÃO</h3>
+                    <p>Pessoa/empresa adota uma araucária por <strong>R$ 20</strong></p>
+                    <p style="font-size: 10px; margin-top: 5px;">Valor reinvestido nas comunidades</p>
+                </div>
+                <div class="card">
+                    <h3>2. 🌱 PLANTIO</h3>
+                    <p>Comunidades Kaingang e Guarani plantam e cuidam</p>
+                    <p style="font-size: 10px; margin-top: 5px;">Saberes tradicionais integrados</p>
+                </div>
+                <div class="card">
+                    <h3>3. 📱 ACOMPANHAMENTO</h3>
+                    <p>Doador recebe localização GPS e atualizações</p>
+                    <p style="font-size: 10px; margin-top: 5px;">Transparência total</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orçamento -->
+        <div class="secao">
+            <h2 class="titulo-secao">💰 ORÇAMENTO DETALHADO</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aquisição de Pinhões</td>
+                        <td>Compra direta das comunidades Kaingang e Guarani</td>
+                        <td>R$ 10.000</td>
+                    </tr>
+                    <tr>
+                        <td>Estrutura de Viveiros</td>
+                        <td>2 unidades nas TIs pluriétnicas</td>
+                        <td>R$ 16.000</td>
+                    </tr>
+                    <tr>
+                        <td>Capacitação Integrada</td>
+                        <td>Troca de saberes Kaingang e Guarani</td>
+                        <td>R$ 8.000</td>
+                    </tr>
+                    <tr>
+                        <td>Plataforma Digital</td>
+                        <td>Sistema de rastreamento multilíngue</td>
+                        <td>R$ 3.000</td>
+                    </tr>
+                    <tr>
+                        <td>Monitoramento</td>
+                        <td>12 meses com participação comunitária</td>
+                        <td>R$ 18.000</td>
+                    </tr>
+                    <tr style="font-weight: bold; background: #e8f5e8;">
+                        <td colspan="2">TOTAL DO INVESTIMENTO</td>
+                        <td>R$ 55.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Segunda Página -->
+    <div class="page page-break">
+        <!-- Parcerias -->
+        <div class="secao">
+            <h2 class="titulo-secao">🤝 PARCERIAS E GOVERNANÇA</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                <div class="card">
+                    <h3>ONG UIRAPURU</h3>
+                    <p><strong>Função:</strong> Coordenação Geral</p>
+                    <p><strong>Experiência:</strong> 15+ anos em projetos com comunidades tradicionais</p>
+                </div>
+                <div class="card">
+                    <h3>Associação TI Rio das Cobras</h3>
+                    <p><strong>Função:</strong> Execução e manejo</p>
+                    <p><strong>Comunidade:</strong> Kaingang e Guarani</p>
+                </div>
+                <div class="card">
+                    <h3>Brigada Voluntária</h3>
+                    <p><strong>Função:</strong> Monitoramento ambiental</p>
+                    <p><strong>Composição:</strong> Membros das duas etnias</p>
+                </div>
+                <div class="card">
+                    <h3>Associação TI Marrecas</h3>
+                    <p><strong>Função:</strong> Execução e conservação</p>
+                    <p><strong>Comunidade:</strong> Kaingang e Guarani</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diferencial Étnico -->
+        <div class="secao">
+            <h2 class="titulo-secao">🌍 DIFERENCIAL PLURIÉTNICO</h2>
+            <div class="card">
+                <h3>INTEGRAÇÃO DE SABERES TRADICIONAIS</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                    <div>
+                        <h4 style="color: #2e7d32; margin-bottom: 10px;">KAINGANG</h4>
+                        <ul style="margin-left: 15px; font-size: 11px;">
+                            <li>Conhecimento ancestral da araucária</li>
+                            <li>Técnicas de coleta sustentável</li>
+                            <li>Manejo tradicional do pinhão</li>
+                            <li>Conservação de sementes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #2e7d32; margin-bottom: 10px;">GUARANI</h4>
+                        <ul style="margin-left: 15px; font-size: 11px;">
+                            <li>Saberes sobre medicina florestal</li>
+                            <li>Técnicas de plantio consorciado</li>
+                            <li>Conhecimento da biodiversidade</li>
+                            <li>Práticas de manejo espiritual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cronograma -->
+        <div class="secao">
+            <h2 class="titulo-secao">📅 CRONOGRAMA DE EXECUÇÃO</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fase</th>
+                        <th>Duração</th>
+                        <th>Atividades Principais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Preparação</td>
+                        <td>Mês 1</td>
+                        <td>Encontros interétnicos, estruturação de viveiros, troca de saberes</td>
+                    </tr>
+                    <tr>
+                        <td>Plantio</td>
+                        <td>Meses 2-3</td>
+                        <td>2.000 araucárias plantadas com técnicas Kaingang e Guarani</td>
+                    </tr>
+                    <tr>
+                        <td>Lançamento</td>
+                        <td>Mês 4</td>
+                        <td>Plataforma multilíngue, campanha de adoção</td>
+                    </tr>
+                    <tr>
+                        <td>Consolidação</td>
+                        <td>Meses 5-18</td>
+                        <td>Monitoramento participativo, relatórios de impacto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Projeção Financeira -->
+        <div class="secao">
+            <h2 class="titulo-secao">📈 PROJEÇÃO FINANCEIRA</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cenário</th>
+                        <th>Adoções</th>
+                        <th>Receita</th>
+                        <th>Impacto Comunitário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conservador</td>
+                        <td>1.200 árvores</td>
+                        <td>R$ 24.000</td>
+                        <td>Renda para 120 famílias</td>
+                    </tr>
+                    <tr>
+                        <td>Realista</td>
+                        <td>2.000 árvores</td>
+                        <td>R$ 40.000</td>
+                        <td>Renda para 200 famílias</td>
+                    </tr>
+                    <tr>
+                        <td>Otimista</td>
+                        <td>2.400 árvores</td>
+                        <td>R$ 48.000</td>
+                        <td>Renda para 240 famílias</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Por que Investir -->
+        <div class="secao">
+            <h2 class="titulo-secao">💎 VALOR PARA INVESTIDORES</h2>
+            <div class="card">
+                <h3>✅ IMPACTO AMPLIADO</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Dupla diversidade:</strong> ambiental e cultural</li>
+                    <li><strong>Saberes integrados:</strong> conhecimentos Kaingang + Guarani</li>
+                    <li><strong>Governança participativa:</strong> duas etnias envolvidas</li>
+                    <li><strong>Transparência:</strong> cada árvore rastreada e documentada</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>✅ RETORNO ESTRATÉGICO</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Projeto <strong>replicável</strong> para outras TIs pluriétnicas</li>
+                    <li>Modelo de <strong>gestão intercultural</strong> validado</li>
+                    <li><strong>Certificacao</strong> de impacto socioambiental</li>
+                    <li><strong>Legado</strong> de conservação e valorização cultural</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chamada para Ação -->
+        <div class="secao">
+            <h2 class="titulo-secao">🎯 OPORTUNIDADE ÚNICA</h2>
+            <div class="card" style="text-align: center; background: #e8f5e8;">
+                <h3 style="color: #1b5e20;">INVISTA NA PRIMEIRA INICIATIVA DE REFLORESTAMENTO PLURIÉTNICO DO PARANÁ</h3>
+                <p style="margin-top: 10px; font-style: italic;">
+                    "Unindo a sabedoria ancestral Kaingang e Guarani com a inovação tecnológica para criar um legado permanente de conservação"
+                </p>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="footer">
+            <p><strong>ONG Uirapuru</strong> | contato@onguirapuru.org | (41) 99999-9999</p>
+            <p>"Honrando saberes ancestrais, cultivando florestas do futuro"</p>
+            <p style="margin-top: 10px; font-size: 9px;">Documento confidencial - Para uso interno</p>
+        </div>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin: 20px;">
+        <button onclick="window.print()" style="padding: 10px 20px; background: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            🖨️ Imprimir/Salvar como PDF
+        </button>
+        <p style="margin-top: 10px; color: #666; font-size: 12px;">Clique no botão acima para gerar o PDF</p>
+    </div>
+</body>
+</html>
