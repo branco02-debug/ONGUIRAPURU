@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adote uma Araucária - ONG Uirapuru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --tertiary: #8d6e63;
+            --text: #333;
+            --text-light: #666;
+            --background: #f9f9f9;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo h1 {
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .current-menu-item a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1571167366136-b57e07761693?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background-color: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .button-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        
+        .button-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .button-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border: 2px solid white;
+            transition: background-color 0.3s;
+        }
+        
+        .button-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Project */
+        .about-project {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Adoption Options */
+        .adoption-options {
+            background-color: var(--white);
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .option-card {
+            background-color: var(--background);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .option-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .option-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .option-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .option-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .option-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .option-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .option-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Adoption Form */
+        .adoption-form-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .form-submit:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--background);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: '"';
+            font-size: 60px;
+            color: var(--primary-light);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background-color: var(--background);
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ddd;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-project, .options-grid, .steps, .testimonials-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .adoption-form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-dove"></i>
+                    <h1>ONG Uirapuru</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <!-- Menu será gerado automaticamente -->
+                    </ul>
+                </nav>
+                <a href="#adotar" class="cta-button">Adote Agora</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Adote uma Araucária</h2>
+            <p>Participe do nosso projeto de reflorestamento e ajude a preservar a árvore símbolo do Paraná</p>
+            
+            <div class="hero-badges">
+                <div class="badge"><i class="fas fa-tree"></i> 10.000+ Árvores Plantadas</div>
+                <div class="badge"><i class="fas fa-users"></i> 300+ Famílias Beneficiadas</div>
+                <div class="badge"><i class="fas fa-map-marker-alt"></i> 5 Terras Indígenas</div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#adotar" class="button-primary">Adotar Agora</a>
+                <a href="#como-funciona" class="button-secondary">Como Funciona</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Project Section -->
+    <section id="sobre-projeto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre o Projeto</h2>
+                <p>Conheça mais sobre nossa iniciativa de reflorestamento com araucárias</p>
+            </div>
+            <div class="about-project">
+                <div class="about-text">
+                    <h3>Preservando Nossa Herança Natural</h3>
+                    <p>A araucária (Araucaria angustifolia), também conhecida como pinheiro-do-paraná, é uma árvore símbolo do nosso estado e está ameaçada de extinção. Nosso projeto visa recuperar áreas degradadas através do plantio de mudas de araucária em Terras Indígenas.</p>
+                    
+                    <p>Cada muda adotada é plantada por famílias Kaingang e Guarani, gerando renda para essas comunidades tradicionais e contribuindo para a conservação da biodiversidade da Mata de Araucárias.</p>
+                    
+                    <p>Além do plantio, o projeto inclui monitoramento das mudas, educação ambiental e capacitação das comunidades em técnicas de manejo sustentável.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#adotar" class="button-primary">Quero Adotar</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Araucárias adultas">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Options Section -->
+    <section class="adoption-options" id="adotar">
+        <div class="container">
+            <div class="section-title">
+                <h2>Opções de Adoção</h2>
+                <p>Escolha a melhor forma de contribuir com o reflorestamento</p>
+            </div>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Adoção Básica</h3>
+                    <div class="option-price">R$ 20</div>
+                    <ul class="option-features">
+                        <li>1 muda de araucária plantada</li>
+                        <li>Certificado digital de adoção</li>
+                        <li>Fotos do plantio</li>
+                        <li>Atualizações semestrais</li>
+                    </ul>
+                    <a href="#formulario" class="button-primary" style="display: block; text-align: center;">Selecionar</a>
+                </div>
+                
+                <div class="option-card featured">
+                    <div class="featured-badge">Mais Popular</div>
+                    <div class="option-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Adoção Completa</h3>
+                    <div class="option-price">R$ 50</div>
+                    <ul class="option-features">
+                        <li>3 mudas de araucária plantadas</li>
+                        <li>Certificado físico e digital</li>
+                        <li>Fotos e coordenadas do plantio</li>
+                        <li>Atualizações trimestrais</li>
+                        <li>Kit com sementes de araucária</li>
+                    </ul>
+                    <a href="#formulario" class="button-primary" style="display: block; text-align: center;">Selecionar</a>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-forest"></i>
+                    </div>
+                    <h3>Adoção Premium</h3>
+                    <div class="option-price">R$ 100</div>
+                    <ul class="option-features">
+                        <li>10 mudas de araucária plantadas</li>
+                        <li>Placa com seu nome na área reflorestada</li>
+                        <li>Visita virtual à área de plantio</li>
+                        <li>Relatório anual de crescimento</li>
+                        <li>Kit completo de produtos da ONG</li>
+                    </ul>
+                    <a href="#formulario" class="button-primary" style="display: block; text-align: center;">Selecionar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="como-funciona">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona</h2>
+                <p>Em apenas 4 passos você pode adotar uma araucária</p>
+            </div>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Escolha sua Adoção</h3>
+                    <p>Selecione uma das opções de adoção que melhor se adequa ao seu perfil.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Preencha o Formulário</h3>
+                    <p>Informe seus dados e a forma de pagamento para processarmos sua adoção.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Plantio da Muda</h3>
+                    <p>Nossa equipe e as comunidades indígenas farão o plantio da sua araucária.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Acompanhe o Crescimento</h3>
+                    <p>Receba atualizações e fotos do desenvolvimento da sua árvore.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Form Section -->
+    <section style="background-color: var(--background);">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="formulario">Formulário de Adoção</h2>
+                <p>Preencha os dados abaixo para adotar sua araucária</p>
+            </div>
+            <div class="adoption-form-container">
+                <form id="adoption-form">
+                    <div class="form-group">
+                        <label for="adoption-type">Tipo de Adoção</label>
+                        <select id="adoption-type" class="form-control" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="basica">Adoção Básica - R$ 20</option>
+                            <option value="completa">Adoção Completa - R$ 50</option>
+                            <option value="premium">Adoção Premium - R$ 100</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quantity">Quantidade</label>
+                        <input type="number" id="quantity" class="form-control" min="1" value="1" required>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: var(--primary);">Dados Pessoais</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: var(--primary);">Endereço</h3>
+                    
+                    <div class="form-group">
+                        <label for="address">Endereço</label>
+                        <input type="text" id="address" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">Estado</label>
+                            <select id="state" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="PR">Paraná</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: var(--primary);">Pagamento</h3>
+                    
+                    <div class="form-group">
+                        <label for="payment-method">Forma de Pagamento</label>
+                        <select id="payment-method" class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="pix">PIX</option>
+                            <option value="cartao">Cartão de Crédito</option>
+                            <option value="boleto">Boleto Bancário</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="background-color: #f0f8f0; padding: 20px; border-radius: 5px; text-align: center;">
+                        <h3 style="margin: 0; color: var(--primary);">Total: <span id="total-amount">R$ 20,00</span></h3>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Finalizar Adoção</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Dizem Quem Já Adotou</h2>
+                <p>Depoimentos de pessoas que já participam do projeto</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Adotei uma araucária para presentear minha filha no seu aniversário. Foi emocionante receber as fotos do plantio e acompanhar o crescimento da árvore. Saber que estamos contribuindo para o meio ambiente e para as comunidades indígenas é muito gratificante.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Silva">
+                        </div>
+                        <div class="author-info">
+                            <h4>Maria Silva</h4>
+                            <p>Adotou 3 araucárias</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Como empresa, buscamos iniciativas sustentáveis para compensar nossa pegada ambiental. O projeto da ONG Uirapuru foi perfeito, pois além do reflorestamento, apoia comunidades tradicionais. Já adotamos 50 araucárias e pretendemos aumentar.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="João Santos">
+                        </div>
+                        <div class="author-info">
+                            <h4>João Santos</h4>
+                            <p>Representante da Empresa Verde</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Moro no exterior, mas queria contribuir com a preservação do Paraná, minha terra natal. Adotar araucárias foi uma forma de manter essa conexão. A ONG envia atualizações regulares e é muito transparente no uso dos recursos.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Oliveira">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Oliveira</h4>
+                            <p>Adotou 5 araucárias</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre o projeto Adote uma Araucária</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Posso visitar minha árvore?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>As árvores são plantadas em Terras Indígenas, que possuem acesso restrito. No entanto, para adoções premium, oferecemos visitas virtuais guiadas por nossa equipe. Em casos especiais, podemos avaliar a possibilidade de visitas presenciais, mediante autorização das comunidades e agendamento prévio.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quanto tempo leva para a araucária crescer?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A araucária é uma árvore de crescimento lento. Nos primeiros anos, ela cresce cerca de 30-40 cm por ano. Aos 5 anos, atinge aproximadamente 2 metros. A maturidade reprodutiva ocorre por volta dos 12-15 anos, quando começa a produzir pinhas (estróbilos).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Posso dar uma araucária de presente?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Oferecemos a opção de presentear. Basta indicar no formulário de adoção que é um presente e fornecer os dados da pessoa presenteada. Enviaremos um certificado personalizado com o nome do presenteado.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        O que acontece se minha árvore morrer?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nossa equipe monitora regularmente as mudas plantadas. Em caso de perda por fatores naturais (seca, pragas, etc.), realizamos o replantio sem custo adicional dentro do primeiro ano. Após esse período, a taxa de sobrevivência é muito alta (acima de 85%).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Como é feita a manutenção das árvores?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A manutenção é realizada pelas comunidades indígenas locais, que recebem capacitação e remuneração para esse trabalho. Inclui irrigação nos primeiros meses, controle de formigas e plantas competidoras, e monitoramento do desenvolvimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ONG Uirapuru</h3>
+                    <p>Protegendo a biodiversidade paranaense através de projetos sustentáveis com comunidades tradicionais.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="file:///run/user/1000/doc/e6255098/index.html">Início</a></li>
+                        <li><a href="file:///run/user/1000/doc/c2737e60/sobre.html">Sobre</a></li>
+                        <li><a href="file:///run/user/1000/doc/76a9e98/projetos.html">Projetos</a></li>
+                        <li><a href="file:///run/user/1000/doc/fe0d9a7f/araucaria.html">Adote uma Araucária</a></li>
+                        <li><a href="file:///run/user/1000/doc/3efa0651/contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Nossos Projetos</h3>
+                    <ul>
+                        <li><a href="adote-araucaria.html">Adote uma Araucária</a></li>
+                        <li><a href="brigada-voluntaria.html">Brigada Voluntária</a></li>
+                        <li><a href="educacao-ambiental.html">Educação Ambiental</a></li>
+                        <li><a href="viveiros-comunitarios.html">Viveiros Comunitários</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Curitiba, PR - Brasil</li>
+                        <li><i class="fas fa-phone"></i> (41) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@onguirapuru.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ONG Uirapuru. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DO MENU AUTOMÁTICO -->
+    <script>
+        // CONFIGURAÇÃO DO MENU - Edite aqui se precisar adicionar/remover páginas
+        const menuConfig = {
+            pages: [
+                { name: "Início", file: "file:///run/user/1000/doc/e6255098/index.html", icon: "fas fa-home" },
+                { name: "Sobre", file: "file:///run/user/1000/doc/c2737e60/sobre.html", icon: "fas fa-info-circle" },
+                { name: "Projetos", file: "file:///run/user/1000/doc/76a9e98/projetos.html", icon: "fas fa-project-diagram" },
+                { name: "Adote uma Araucária", file: "file:///run/user/1000/doc/fe0d9a7f/araucaria.html", icon: "fas fa-tree" },
+                { name: "Contato", file: "file:///run/user/1000/doc/3efa0651/contato.html", icon: "fas fa-envelope" }
+            ]
+        };
+
+        // FUNÇÃO PARA CRIAR MENU AUTOMATICAMENTE
+        function criarMenuAutomatico() {
+            const nav = document.querySelector('nav ul');
+            if (!nav) return;
+            
+            // Limpa o menu atual
+            nav.innerHTML = '';
+            
+            // Página atual
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Cria os itens do menu
+            menuConfig.pages.forEach(pagina => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = pagina.file;
+                a.innerHTML = pagina.icon ? `<i class="${pagina.icon}"></i> ${pagina.name}` : pagina.name;
+                
+                // Destaca página atual
+                if (pagina.file === currentPage) {
+                    li.classList.add('current-menu-item');
+                }
+                
+                li.appendChild(a);
+                nav.appendChild(li);
+            });
+        }
+
+        // FUNÇÃO PARA CALCULAR O TOTAL
+        function calcularTotal() {
+            const tipoAdocao = document.getElementById('adoption-type');
+            const quantidade = document.getElementById('quantity');
+            const totalElement = document.getElementById('total-amount');
+            
+            let precoUnitario = 0;
+            
+            switch(tipoAdocao.value) {
+                case 'basica':
+                    precoUnitario = 20;
+                    break;
+                case 'completa':
+                    precoUnitario = 50;
+                    break;
+                case 'premium':
+                    precoUnitario = 100;
+                    break;
+                default:
+                    precoUnitario = 0;
+            }
+            
+            const total = precoUnitario * parseInt(quantidade.value);
+            totalElement.textContent = `R$ ${total.toFixed(2)}`;
+        }
+
+        // FUNÇÃO PARA FAQ ACCORDION
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Fecha todos os outros itens
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Abre/fecha o item atual
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Executa quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            criarMenuAutomatico();
+            initFAQ();
+            
+            // Configura eventos para calcular o total
+            document.getElementById('adoption-type').addEventListener('change', calcularTotal);
+            document.getElementById('quantity').addEventListener('input', calcularTotal);
+            
+            // Configura o envio do formulário
+            document.getElementById('adoption-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Obrigado por adotar uma araucária! Em breve entraremos em contato para finalizar o processo.');
+                // Em uma implementação real, aqui enviaríamos os dados para o servidor
+            });
+        });
+
+        // Também executa se a página já carregou (para garantir)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', criarMenuAutomatico);
+        } else {
+            criarMenuAutomatico();
+        }
+    </script>
+</body>
+</html>
